@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookstore-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bookstore-app
+  template:
+    metadata:
+      labels:
+        app: bookstore-app
+    spec:
+      containers:
+        - name: bookstore-app
+          image: mwyssy/bookstore-frontend-api:1.0
+          ports:
+            - containerPort: 80
+          env:
+            - name: BACKEND_URL
+              value: bookstore-backend
