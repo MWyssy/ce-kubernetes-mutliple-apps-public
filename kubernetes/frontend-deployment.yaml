@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: bookstore-app
-          image: mwyssy/bookstore-frontend-api:1.0
+          image: mwyssy/bookstore-frontend-api:1.1
           ports:
             - containerPort: 80
           env:
