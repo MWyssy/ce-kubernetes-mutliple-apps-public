@@ -11,10 +11,12 @@ spec:
     metadata:
       labels:
         app: bookstore-app
+        tier: frontend
+        track: stable
     spec:
       containers:
-        - name: bookstore-app
-          image: mwyssy/bookstore-frontend-api:1.1
+        - name: nginx
+          image: mwyssy/bookstore-frontend-api:1.7
           ports:
             - containerPort: 80
           env:

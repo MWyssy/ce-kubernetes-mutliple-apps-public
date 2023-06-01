@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: bookstore-frontend-service
+  name: bookstore-frontend
 spec:
   selector:
     app: bookstore-app
+    tier: frontend
   ports:
     - protocol: TCP
-      port: 8080
+      port: 80
       targetPort: 80
-  type: LoadBalancer
+  type: NodePort

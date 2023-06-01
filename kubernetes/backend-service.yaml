@@ -5,8 +5,8 @@ metadata:
 spec:
   selector:
     app: bookstore-app
+    tier: backend
   ports:
     - protocol: TCP
-      port: 5050
-      targetPort: 5000
-  type: ClusterIP
+      port: 5000
+      targetPort: http

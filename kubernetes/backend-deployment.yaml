@@ -11,9 +11,12 @@ spec:
     metadata:
       labels:
         app: bookstore-app
+        tier: backend
+        track: stable
     spec:
       containers:
         - name: bookstore-app
           image: mwyssy/bookstore-backend-api:1.0
           ports:
-            - containerPort: 5000
+            - name: http
+              containerPort: 5000
