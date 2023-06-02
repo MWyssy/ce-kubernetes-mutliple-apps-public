@@ -1,24 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bookstore-frontend
+  name: aws-bookstore-frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: bookstore-app
+      app: aws-bookstore-frontend
   template:
     metadata:
       labels:
-        app: bookstore-app
+        app: aws-bookstore-frontend
         tier: frontend
         track: stable
     spec:
       containers:
-        - name: nginx
-          image: mwyssy/bookstore-frontend-api:1.7
+        - name: aws-bookstore-frontend
+          image: 529351201608.dkr.ecr.eu-west-2.amazonaws.com/bookstore-frontend:1.0
           ports:
             - containerPort: 80
-          env:
-            - name: BACKEND_URL
-              value: bookstore-backend
