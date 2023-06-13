@@ -8,6 +8,7 @@ spec:
     tier: backend
   ports:
     - protocol: TCP
+      name: backend-service
       port: 5000
       targetPort: 5000
   type: ClusterIP

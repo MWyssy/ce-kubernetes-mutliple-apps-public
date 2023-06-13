@@ -7,13 +7,12 @@ metadata:
 spec:
   ingressClassName: nginx-example
   rules:
-    - host: a1bec45c3d3f4425a81fc56824c15cf9-413413385.eu-west-2.elb.amazonaws.com
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: aws-bookstore-backend
+                name: backend-service
                 port:
                   number: 5000

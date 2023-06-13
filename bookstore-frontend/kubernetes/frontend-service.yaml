@@ -8,6 +8,7 @@ spec:
     tier: frontend
   ports:
     - protocol: TCP
+      name: frontend-service
       port: 80
       targetPort: 80
-  type: LoadBalancer
+  type: NodePort

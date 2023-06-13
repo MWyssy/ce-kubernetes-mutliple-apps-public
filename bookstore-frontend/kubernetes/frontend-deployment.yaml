@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: aws-bookstore-frontend
-          image: 529351201608.dkr.ecr.eu-west-2.amazonaws.com/bookstore-frontend:1.0
+          image: 529351201608.dkr.ecr.eu-west-2.amazonaws.com/bookstore-frontend:1.1
           ports:
             - containerPort: 80
