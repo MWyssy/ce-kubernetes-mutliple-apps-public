@@ -1,0 +1,25 @@
+version: 2.1
+orbs:
+  python: circleci/python@2.1.1
+  aws-ecr: circleci/aws-ecr@8.2.1
+
+jobs:
+  build-image-and-push:
+    working_directory: ~/ce-kubernetes-multiple-apps
+    docker:
+      - image: cimg/aws:2023.05
+    steps:
+      - setup_remote_docker
+      - aws-ecr/build-and-push-image:
+          repo: bookstore-api
+          path: ./bookstore-backend
+          build-path: "./bookstore-backend"
+          tag: ${CIRCLE_BUILD_NUM}
+          public-registry-alias: f2m3w5c9
+          public-registry: true
+          create-repo: true
+
+workflows:
+  demo-app-pipeline:
+    jobs:
+      - build-image-and-push:
