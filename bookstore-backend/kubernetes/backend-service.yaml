@@ -6,7 +6,7 @@ metadata:
     prometheus.io/port: "backend-api"
     prometheus.io/scrape: "true"
   labels: 
-    app.kubernetes.io/part-of: dms
+    app.kubernetes.io/part-of: bookstore
 spec:
   selector:
     app: aws-bookstore-backend
