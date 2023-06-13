@@ -1,11 +1,15 @@
 from flask import Flask
 from flask_restful import Resource, Api, reqparse, abort, marshal, fields
 from flask_cors import CORS
+from prometheus_flask_exporter import RESTfulPrometheusMetrics
+
 
 # Initialize Flask
 app = Flask(__name__)
 CORS(app)
 api = Api(app)
+
+metrics = RESTfulPrometheusMetrics(app, api)
 
 # A List of Dicts to store all of the books
 books = [{
