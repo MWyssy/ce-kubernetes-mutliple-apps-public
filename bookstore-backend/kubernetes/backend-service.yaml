@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: aws-bookstore-backend
   annotations:
-    prometheus.io/port: "metrics"
+    prometheus.io/port: "backend-api"
     prometheus.io/scrape: "true"
   labels: 
     app.kubernetes.io/part-of: dms
@@ -13,7 +13,7 @@ spec:
     tier: backend
   ports:
     - protocol: TCP
-      name: backend-service
+      name: backend-api
       port: 5000
       targetPort: 5000
   type: ClusterIP
