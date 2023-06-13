@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: aws-bookstore-backend
-          image: public.ecr.aws/f2m3w5c9/bookstore-api:4
+          image: public.ecr.aws/f2m3w5c9/bookstore-api:5
           ports:
             - name: http
               containerPort: 5000

@@ -3,7 +3,6 @@ from flask_restful import Resource, Api, reqparse, abort, marshal, fields
 from flask_cors import CORS
 from prometheus_flask_exporter import RESTfulPrometheusMetrics
 
-
 # Initialize Flask
 app = Flask(__name__)
 CORS(app)
@@ -45,8 +44,10 @@ class BookList(Resource):
     def __init__(self):
         self.reqparse = reqparse.RequestParser()
 
+    @metrics.counter('invocation_by_type', 'Number of invocations for GET books',
+         labels={'status': lambda r: r.status_code})
     def get(self):
-        return{"books": [marshal(book, bookFields) for book in books]}
+        return{"books": [marshal(book, bookFields) for book in books]}, 200
 
 
 api.add_resource(BookList, "/books")
